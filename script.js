@@ -3,6 +3,24 @@ const bar1 = document.getElementById("bar-1");
 const bar2 = document.getElementById("bar-2");
 const ball = document.getElementById("ball");
 const movement = 20;
+const startButton = document.getElementById('start-button');
+
+let gameStarted = false;
+
+startButton.addEventListener('click', () => {
+    gameStarted = true;
+    startButton.style.display = 'none';
+});
+
+function gameLoop() {
+    if (gameStarted) {
+        // Update the positions of the ball and bars here
+        startGame();
+    }
+    requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
 
 // Constants
 const thisBar1 = "Rod-1";
@@ -199,17 +217,20 @@ function moveLeft() {
 }
 
 // Function to store data and reset the game
-function dataStoring(scoreObtained, winningBar) {
-    // Update and store the high score and winning player
-    if (score > highScore) {
-        highScore = score;
+function storeData(scoreObtained, winningBar) {
+    // Check if score is greater than highScore
+    if (scoreObtained > highScore) {
+        highScore = scoreObtained;
         localStorage.setItem(storeName, winningBar);
         localStorage.setItem(storeScore, highScore);
     }
+
     // Stop the ball movement and reset the game
     clearInterval(ballMoving);
     gameReset(winningBar);
 
     // Display the result to the user
-    alert(winningBar + " wins with a score of " + (scoreObtained * 100) + ". Max Score is: " + (highScore * 100));
+    const maxScore = highScore * 100;
+    const scoreDisplay = scoreObtained * 100;
+    alert(`${winningBar} wins with a score of ${scoreDisplay}. Max Score is: ${maxScore}`);
 }
