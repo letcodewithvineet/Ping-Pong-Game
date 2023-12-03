@@ -3,6 +3,7 @@ const bar1 = document.getElementById("bar-1");
 const bar2 = document.getElementById("bar-2");
 const ball = document.getElementById("ball");
 const movement = 20;
+const startButton = document.getElementById('start-button');
 
 // Constants
 const thisBar1 = "Rod-1";
@@ -23,6 +24,34 @@ let gameStart = false;
 // Set initial high score and player
 localStorage.setItem(storeScore, "null");
 localStorage.setItem(storeScore, "null");
+
+// Event listener for touch events
+document.addEventListener('touchstart', handleTouchStart);
+document.addEventListener('touchmove', handleTouchMove);
+
+// Function to handle touch start events
+function handleTouchStart(event) {
+    event.preventDefault();
+    const touchX = event.touches[0].clientX;
+    moveBar(touchX > window.innerWidth / 2 ? movement : -movement);
+}
+
+// Function to handle touch move events
+function handleTouchMove(event) {
+    event.preventDefault();
+    const touchX = event.touches[0].clientX;
+    moveBar(touchX > window.innerWidth / 2 ? movement : -movement);
+}
+
+
+// Event listener for the "Start" button
+startButton.addEventListener('click', () => {
+    if (!gameStart) {
+        gameStart = true;
+        startGame();
+        startButton.style.display = 'none'; // Hide the Start button
+    }
+});
 
 // Initialization function using IIFE
 (function () {

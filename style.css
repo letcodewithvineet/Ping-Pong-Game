@@ -1,44 +1,106 @@
-*{
+* {
   padding: 0px;
   margin: 0px;
 }
-#container{
-  /* border: 1px solid black; */
-  position: relative;
+
+body {
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
-#ball{
+
+#start-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #444;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#container {
+  position: relative;
+  width: 100%; /* Adjusted to 100% for responsiveness */
+  max-width: 640px; /* Added a maximum width */
+  height: 480px;
+  background-color: #111;
+  overflow: hidden;
+  margin: 20px; /* Added some margin for spacing */
+}
+
+#ball {
   height: 20px;
   width: 20px;
-  /* border:1px solid black; */
   position: fixed;
   border-radius: 50%;
-  background-color:brown;
-  left:60%;
-  top:20px;
+  background-color: brown;
+  left: 50%;
+  top: 20px;
 }
-#bar-1{
+
+#bar-1,
+#bar-2 {
+  position: absolute;
+  height: 100px;
+  width: 20px;
+  background-color: #ddd;
+}
+
+#bar-1 {
   height: 20px;
   display: flex;
   justify-content: center;
-  width:150px;
+  width: 150px;
   background-color: seagreen;
   border-radius: 10px;
-  /* border:1px solid black; */
   position: fixed;
   font-weight: bold;
-  top:0%;
-  left:50%;
+  top: 0%;
+  left: 50%;
 }
-#bar-2{
+
+#bar-2 {
   height: 20px;
-  width:150px;
+  width: 150px;
   background-color: cadetblue;
   border-radius: 10px;
-  /* border:1px solid black; */
   position: fixed;
   display: flex;
   justify-content: center;
   font-weight: bold;
   bottom: 0%;
-  left:50%;
+  left: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  /* Adjust styles for tablets and smaller screens */
+  #container {
+    max-width: 480px; /* Adjusted maximum width for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* Adjust styles for mobile devices */
+  #container {
+    max-width: 300px; /* Adjusted maximum width for smaller screens */
+  }
+
+  #bar-1,
+  #bar-2 {
+    height: 15px; /* Adjusted bar height for smaller screens */
+  }
+
+  #ball {
+    height: 15px;
+    width: 15px;
+  }
+
+  #start-button {
+    font-size: 14px; /* Adjusted font size for smaller screens */
+  }
 }
