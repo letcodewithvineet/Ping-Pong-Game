@@ -2,31 +2,9 @@
   padding: 0px;
   margin: 0px;
 }
-body {
-  background-color: #222;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-#start-button {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: #444;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
 #container{
   /* border: 1px solid black; */
   position: relative;
-  /* width: 640px;
-  height: 480px; */
-  background-color: #111;
-  overflow: hidden;
 }
 #ball{
   height: 20px;
@@ -37,12 +15,6 @@ body {
   background-color:brown;
   left:60%;
   top:20px;
-}
-#bar-1, #bar-2 {
-  position: absolute;
-  height: 100px;
-  width: 20px;
-  background-color: #ddd;
 }
 #bar-1{
   height: 20px;
